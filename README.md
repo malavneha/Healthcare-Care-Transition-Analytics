@@ -1,0 +1,59 @@
+# Healthcare Care Transition Analytics
+
+## Project Overview
+This project analyzes the efficiency of the Unaccompanied Alien Children (UAC) care transition process using Python, Pandas, Matplotlib, and Streamlit.
+
+The analysis focuses on:
+
+- CBP Apprehensions
+- Children in CBP Custody
+- Transfers from CBP to HHS
+- Children in HHS Care
+- Discharges from HHS Care
+
+## Objectives
+
+- Analyze monthly trends
+- Measure transfer efficiency
+- Measure discharge efficiency
+- Detect operational bottlenecks
+- Build an interactive Streamlit dashboard
+
+## Technologies Used
+
+- Python
+- Pandas
+- NumPy
+- Matplotlib
+- Streamlit
+
+## Key Performance Indicators (KPIs)
+
+- Transfer Efficiency Ratio
+- Discharge Efficiency Ratio
+- Monthly Apprehension Trend
+- Monthly Transfer Trend
+- Monthly Discharge Trend
+
+## Repository Structure
+
+```
+Healthcare-Care-Transition-Analytics/
+│
+├── app.py
+├── analysis.ipynb
+├── requirements.txt
+├── README.md
+└── data/
+```
+
+## Future Improvements
+
+- Interactive dashboard
+- Predictive analytics
+- Automated reporting
+- Government stakeholder reporting
+
+## Author
+
+Neha Malav
