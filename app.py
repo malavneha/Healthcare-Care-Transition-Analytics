@@ -103,3 +103,95 @@ if uploaded_file is not None:
         &
         (df["Date"] <= pd.to_datetime(end_date))
     ]
+        # --------------------------------------------------
+    # KPI CALCULATIONS
+    # --------------------------------------------------
+
+    filtered_df["Transfer Efficiency Ratio"] = np.where(
+        filtered_df["Children apprehended and placed in CBP custody*"] > 0,
+        filtered_df["Children transferred out of CBP custody"] /
+        filtered_df["Children apprehended and placed in CBP custody*"],
+        np.nan
+    )
+
+    filtered_df["Discharge Efficiency Ratio"] = np.where(
+        filtered_df["Children in HHS Care"] > 0,
+        filtered_df["Children discharged from HHS Care"] /
+        filtered_df["Children in HHS Care"],
+        np.nan
+    )
+
+    # --------------------------------------------------
+    # KPI VALUES
+    # --------------------------------------------------
+
+    total_apprehended = int(
+        filtered_df["Children apprehended and placed in CBP custody*"].sum()
+    )
+
+    total_transferred = int(
+        filtered_df["Children transferred out of CBP custody"].sum()
+    )
+
+    avg_hhs = int(
+        filtered_df["Children in HHS Care"].mean()
+    )
+
+    total_discharged = int(
+        filtered_df["Children discharged from HHS Care"].sum()
+    )
+
+    avg_transfer = (
+        filtered_df["Transfer Efficiency Ratio"]
+        .replace([np.inf, -np.inf], np.nan)
+        .mean()
+    )
+
+    avg_discharge = (
+        filtered_df["Discharge Efficiency Ratio"]
+        .replace([np.inf, -np.inf], np.nan)
+        .mean()
+    )
+
+    # --------------------------------------------------
+    # KPI CARDS
+    # --------------------------------------------------
+
+    st.subheader("📊 Key Performance Indicators")
+
+    col1, col2, col3, col4 = st.columns(4)
+
+    col1.metric(
+        "👧 Total Apprehended",
+        f"{total_apprehended:,}"
+    )
+
+    col2.metric(
+        "🚍 Total Transfers",
+        f"{total_transferred:,}"
+    )
+
+    col3.metric(
+        "🏥 Avg. Children in HHS Care",
+        f"{avg_hhs:,}"
+    )
+
+    col4.metric(
+        "🏠 Total Discharges",
+        f"{total_discharged:,}"
+    )
+
+    col5, col6 = st.columns(2)
+
+    col5.metric(
+        "📈 Avg Transfer Ratio",
+        f"{avg_transfer:.2%}"
+    )
+
+    col6.metric(
+        "📉 Avg Discharge Ratio",
+        f"{avg_discharge:.2%}"
+    )
+
+    st.divider()
+    
