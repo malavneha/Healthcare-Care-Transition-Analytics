@@ -51,13 +51,13 @@ if uploaded_file is not None:
 
     with col1:
         st.metric(
-            "Average Transfer Efficiency",
+            "Average CBP → HHS Transfer Ratio"
             f"{df['Transfer Efficiency Ratio'].replace(float('inf'), 0).mean():.2%}"
         )
 
     with col2:
         st.metric(
-            "Average Discharge Efficiency",
+            
             f"{df['Discharge Efficiency Ratio'].mean():.2%}"
         )
 
