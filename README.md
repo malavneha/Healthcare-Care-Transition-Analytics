@@ -58,14 +58,19 @@ Healthcare-Care-Transition-Analytics/
 
 Neha Malav
 ## 🌐 Live Demo
-
 ## Dashboard Preview
 
-![Upload](images/upload.png)
+### Upload Dataset
+![Upload](Screenshot_20260806_072735.png)
 
-![KPIs](images/kpi.png)
+### KPI Dashboard
+![KPI](Screenshot_20260806_072740.png)
 
-![Monthly Trend](images/chart.png)
+### Monthly Apprehensions
+![Chart](Screenshot_20260806_072743.png)
+
+
+
 **Streamlit App:**  
 https://healthcare-care-transition-analytics-ned5x4whmtey76yaxl4orr.streamlit.app/
 
