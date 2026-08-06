@@ -52,7 +52,7 @@ if uploaded_file is not None:
     # ----------------------------
     # Handle Missing Values
     # ----------------------------
-    df.fillna(0, inplace=True)
+    df[numeric_cols] = df[numeric_cols].fillna(0)
 
     # ----------------------------
     # Calculate KPIs
