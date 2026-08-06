@@ -297,3 +297,90 @@ if uploaded_file is not None:
     right2.plotly_chart(fig4, use_container_width=True)
 
     st.divider()
+    # --------------------------------------------------
+    # CARE PIPELINE DISTRIBUTION
+    # --------------------------------------------------
+
+    st.subheader("🥧 Care Pipeline Distribution")
+
+    pipeline = pd.DataFrame({
+        "Stage": [
+            "CBP Custody",
+            "Transferred",
+            "HHS Care",
+            "Discharged"
+        ],
+        "Children": [
+            filtered_df["Children in CBP custody"].sum(),
+            filtered_df["Children transferred out of CBP custody"].sum(),
+            filtered_df["Children in HHS Care"].sum(),
+            filtered_df["Children discharged from HHS Care"].sum()
+        ]
+    })
+
+    fig5 = px.pie(
+        pipeline,
+        values="Children",
+        names="Stage",
+        hole=0.45,
+        title="Care Transition Distribution"
+    )
+
+    st.plotly_chart(fig5, use_container_width=True)
+
+    st.divider()
+
+    # --------------------------------------------------
+    # DATASET
+    # --------------------------------------------------
+
+    st.subheader("📄 Filtered Dataset")
+
+    st.dataframe(
+        filtered_df,
+        use_container_width=True
+    )
+
+    # --------------------------------------------------
+    # DOWNLOAD BUTTON
+    # --------------------------------------------------
+
+    csv = filtered_df.to_csv(index=False).encode("utf-8")
+
+    st.download_button(
+        label="⬇ Download Filtered Dataset",
+        data=csv,
+        file_name="Healthcare_Care_Transition_Analytics.csv",
+        mime="text/csv"
+    )
+
+    st.divider()
+
+    # --------------------------------------------------
+    # FOOTER
+    # --------------------------------------------------
+
+    st.markdown("---")
+
+    st.markdown(
+        """
+        ### 👩‍💻 Developed by Neha Malav
+
+        **Healthcare Care Transition Analytics Dashboard**
+
+        Built using:
+
+        - Python
+        - Streamlit
+        - Pandas
+        - Plotly
+
+        © 2026
+        """
+    )
+
+else:
+
+    st.info(
+        "⬆ Upload the HHS_Unaccompanied_Alien_Children_Program.csv dataset to begin."
+    )
