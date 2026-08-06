@@ -364,7 +364,7 @@ if uploaded_file is not None:
 
     st.markdown(
         """
-        ### 👩‍💻 Developed by Neha Malav
+        ### 👩‍💻 Developed by Dr. Neha Malav
 
         **Healthcare Care Transition Analytics Dashboard**
 
