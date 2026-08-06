@@ -52,7 +52,7 @@ if uploaded_file is not None:
     with col1:
         st.metric(
             "Average Transfer Efficiency",
-            f"{df['Transfer Efficiency Ratio'].mean():.2%}"
+            f"{df['Transfer Efficiency Ratio'].replace(float('inf'), 0).mean():.2%}"
         )
 
     with col2:
