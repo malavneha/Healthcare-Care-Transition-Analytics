@@ -57,3 +57,25 @@ Healthcare-Care-Transition-Analytics/
 ## Author
 
 Neha Malav
+## 🌐 Live Demo
+
+**Streamlit App:**  
+https://healthcare-care-transition-analytics-ned5x4whmtey76yaxl4orr.streamlit.app/
+
+## 📓 Kaggle Notebook
+
+https://www.kaggle.com/code/nehamalav/nehaproject8d1a
+
+## 🚀 Features
+
+- Interactive Streamlit Dashboard
+- Upload CSV Dataset
+- Dataset Preview
+- Transfer Efficiency KPI
+- Discharge Efficiency KPI
+- Monthly Trend Analysis
+- Data Cleaning with Pandas
+
+## Author
+
+**Neha Malav**
