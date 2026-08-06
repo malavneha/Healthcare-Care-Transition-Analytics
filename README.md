@@ -58,7 +58,31 @@ Healthcare-Care-Transition-Analytics/
 
 Neha Malav
 ## 🌐 Live Demo
-## Dashboard Preview
+## 📸 Dashboard Preview
+
+### Dashboard Overview
+![Dashboard](dashboard_home.jpg)
+
+### KPI Cards
+![KPI Cards](kpi_cards.jpg)
+
+### Monthly Apprehensions
+![Monthly Apprehensions](monthly_apprehensions.jpg)
+
+### Monthly Transfers
+![Monthly Transfers](monthly_transfers.jpg)
+
+### Monthly Discharges
+![Monthly Discharges](monthly_discharges.jpg)
+
+### CBP vs HHS Comparison
+![CBP vs HHS](cbp_vs_hhs.jpg)
+
+### Care Pipeline Distribution
+![Care Pipeline](care_pipeline.jpg)
+
+### Filtered Dataset
+![Dataset](filtered_dataset.jpg)
 
 ### Upload Dataset
 ![Upload](Screenshot_20260806_072735.png)
