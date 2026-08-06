@@ -35,3 +35,43 @@ if uploaded_file is not None:
 
     st.subheader("Dataset Preview")
     st.dataframe(df.head())
+    df["Transfer Efficiency Ratio"] = (
+        df["Children transferred out of CBP custody"] /
+        df["Children apprehended and placed in CBP custody*"]
+    )
+
+    df["Discharge Efficiency Ratio"] = (
+        df["Children discharged from HHS Care"] /
+        df["Children in HHS Care"]
+    )
+
+    st.subheader("Key Performance Indicators")
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.metric(
+            "Average Transfer Efficiency",
+            f"{df['Transfer Efficiency Ratio'].mean():.2%}"
+        )
+
+    with col2:
+        st.metric(
+            "Average Discharge Efficiency",
+            f"{df['Discharge Efficiency Ratio'].mean():.2%}"
+        )
+
+    st.subheader("Monthly Apprehensions")
+
+    monthly = df.groupby(df["Date"].dt.to_period("M"))[
+        "Children apprehended and placed in CBP custody*"
+    ].sum()
+
+    fig, ax = plt.subplots(figsize=(10,5))
+    monthly.plot(ax=ax)
+
+    ax.set_xlabel("Month")
+    ax.set_ylabel("Children")
+    ax.set_title("Monthly Apprehensions")
+
+    st.pyplot(fig)
