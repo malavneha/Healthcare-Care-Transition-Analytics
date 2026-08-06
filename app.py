@@ -1,37 +1,63 @@
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
+import plotly.express as px
+import plotly.graph_objects as go
 import numpy as np
 
-# ----------------------------
-# Page Configuration
-# ----------------------------
+# --------------------------------------------------
+# PAGE CONFIG
+# --------------------------------------------------
 st.set_page_config(
     page_title="Healthcare Care Transition Analytics",
+    page_icon="🏥",
     layout="wide"
 )
 
+# --------------------------------------------------
+# HEADER
+# --------------------------------------------------
 st.title("🏥 Healthcare Care Transition Analytics Dashboard")
 
-# ----------------------------
-# Upload Dataset
-# ----------------------------
+st.markdown("""
+Analyze the efficiency of the **Unaccompanied Alien Children (UAC)** care transition pipeline.
+
+This dashboard provides operational insights into:
+
+- CBP Apprehensions
+- CBP Custody
+- Transfers to HHS
+- Children in HHS Care
+- Discharges from HHS Care
+""")
+
+st.divider()
+
+# --------------------------------------------------
+# FILE UPLOAD
+# --------------------------------------------------
 uploaded_file = st.file_uploader(
-    "Upload HHS_Unaccompanied_Alien_Children_Program.csv",
+    "📂 Upload HHS_Unaccompanied_Alien_Children_Program.csv",
     type=["csv"]
 )
 
 if uploaded_file is not None:
 
-    # ----------------------------
-    # Read Dataset
-    # ----------------------------
+    # -----------------------------
+    # Load Data
+    # -----------------------------
     df = pd.read_csv(uploaded_file)
 
+    # -----------------------------
     # Convert Date
-    df["Date"] = pd.to_datetime(df["Date"], errors="coerce")
+    # -----------------------------
+    df["Date"] = pd.to_datetime(
+        df["Date"],
+        errors="coerce"
+    )
 
-    # Convert Numeric Columns
+    # -----------------------------
+    # Numeric Columns
+    # -----------------------------
     numeric_cols = [
         "Children apprehended and placed in CBP custody*",
         "Children in CBP custody",
@@ -41,82 +67,39 @@ if uploaded_file is not None:
     ]
 
     for col in numeric_cols:
+
         df[col] = (
             df[col]
             .astype(str)
             .str.replace(",", "", regex=False)
         )
 
-        df[col] = pd.to_numeric(df[col], errors="coerce")
+        df[col] = pd.to_numeric(
+            df[col],
+            errors="coerce"
+        )
 
-    # ----------------------------
-    # Handle Missing Values
-    # ----------------------------
+    # Fill only numeric columns
     df[numeric_cols] = df[numeric_cols].fillna(0)
 
-    # ----------------------------
-    # Calculate KPIs
-    # ----------------------------
-    df["Transfer Efficiency Ratio"] = np.where(
-        df["Children apprehended and placed in CBP custody*"] > 0,
-        df["Children transferred out of CBP custody"] /
-        df["Children apprehended and placed in CBP custody*"],
-        np.nan
+    # --------------------------------------------------
+    # SIDEBAR
+    # --------------------------------------------------
+
+    st.sidebar.header("📅 Dashboard Filters")
+
+    start_date = st.sidebar.date_input(
+        "Start Date",
+        value=df["Date"].min().date()
     )
 
-    df["Discharge Efficiency Ratio"] = np.where(
-        df["Children in HHS Care"] > 0,
-        df["Children discharged from HHS Care"] /
-        df["Children in HHS Care"],
-        np.nan
+    end_date = st.sidebar.date_input(
+        "End Date",
+        value=df["Date"].max().date()
     )
 
-    # ----------------------------
-    # Dataset Preview
-    # ----------------------------
-    st.subheader("Dataset Preview")
-    st.dataframe(df.head())
-
-    # ----------------------------
-    # KPI Cards
-    # ----------------------------
-    st.subheader("Key Performance Indicators")
-
-    col1, col2 = st.columns(2)
-
-    with col1:
-        st.metric(
-            "Average Transfer Efficiency",
-            f"{df['Transfer Efficiency Ratio'].mean():.2%}"
-        )
-
-    with col2:
-        st.metric(
-            "Average Discharge Efficiency",
-            f"{df['Discharge Efficiency Ratio'].mean():.2%}"
-        )
-
-    # ----------------------------
-    # Monthly Apprehension Chart
-    # ----------------------------
-    st.subheader("Monthly Apprehensions")
-
-    monthly = (
-        df.groupby(df["Date"].dt.to_period("M"))[
-            "Children apprehended and placed in CBP custody*"
-        ]
-        .sum()
-    )
-
-    fig, ax = plt.subplots(figsize=(10, 5))
-
-    monthly.plot(ax=ax)
-
-    ax.set_xlabel("Month")
-    ax.set_ylabel("Children")
-    ax.set_title("Monthly Apprehensions")
-
-    st.pyplot(fig)
-
-else:
-    st.info("👆 Please upload the HHS_Unaccompanied_Alien_Children_Program.csv file to begin.")
+    filtered_df = df[
+        (df["Date"] >= pd.to_datetime(start_date))
+        &
+        (df["Date"] <= pd.to_datetime(end_date))
+    ]
