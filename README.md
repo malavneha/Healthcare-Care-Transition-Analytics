@@ -92,8 +92,29 @@ Neha Malav
 
 ### Monthly Apprehensions
 ![Chart](Screenshot_20260806_072743.png)
+## 📊 Key Insights
 
+- CBP apprehensions fluctuated significantly over the observed period, indicating changing migration patterns.
+- Transfer efficiency from CBP to HHS remained high overall, demonstrating timely movement into HHS care.
+- Discharge efficiency remained relatively low, suggesting children typically stay in HHS care for extended periods.
+- Monthly trends revealed seasonal variations in apprehensions and transfers.
+- Interactive filtering enables stakeholders to analyze operational performance across different time periods.
+## 💡 Recommendations
 
+- Improve discharge planning to reduce the average length of stay in HHS care.
+- Monitor transfer efficiency continuously to prevent bottlenecks between CBP and HHS.
+- Use predictive analytics to forecast future care demand.
+- Develop automated alerts for unusual increases in apprehensions or delays in transfers.
+- Expand the dashboard with regional and state-level analytics for better decision-making.
+- ## 🚀 Future Enhancements
+
+- Predictive analytics using Machine Learning
+- Interactive geographic maps
+- Real-time data integration
+- Executive summary dashboard
+- Automated PDF reporting
+- Advanced KPI monitoring
+- 
 
 **Streamlit App:**  
 https://healthcare-care-transition-analytics-ned5x4whmtey76yaxl4orr.streamlit.app/
