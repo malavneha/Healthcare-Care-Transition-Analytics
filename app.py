@@ -194,4 +194,106 @@ if uploaded_file is not None:
     )
 
     st.divider()
-    
+        # --------------------------------------------------
+    # CHARTS
+    # --------------------------------------------------
+
+    st.subheader("📈 Dashboard Visualizations")
+
+    left, right = st.columns(2)
+
+    # -----------------------------
+    # Monthly Apprehensions
+    # -----------------------------
+    monthly_app = (
+        filtered_df.groupby(filtered_df["Date"].dt.to_period("M"))[
+            "Children apprehended and placed in CBP custody*"
+        ]
+        .sum()
+        .reset_index()
+    )
+
+    monthly_app["Date"] = monthly_app["Date"].astype(str)
+
+    fig1 = px.line(
+        monthly_app,
+        x="Date",
+        y="Children apprehended and placed in CBP custody*",
+        title="Monthly Apprehensions",
+        markers=True
+    )
+
+    left.plotly_chart(fig1, use_container_width=True)
+
+    # -----------------------------
+    # Monthly Transfers
+    # -----------------------------
+    monthly_transfer = (
+        filtered_df.groupby(filtered_df["Date"].dt.to_period("M"))[
+            "Children transferred out of CBP custody"
+        ]
+        .sum()
+        .reset_index()
+    )
+
+    monthly_transfer["Date"] = monthly_transfer["Date"].astype(str)
+
+    fig2 = px.line(
+        monthly_transfer,
+        x="Date",
+        y="Children transferred out of CBP custody",
+        title="Monthly Transfers",
+        markers=True
+    )
+
+    right.plotly_chart(fig2, use_container_width=True)
+
+    # -----------------------------
+    # Monthly Discharges
+    # -----------------------------
+    left2, right2 = st.columns(2)
+
+    monthly_discharge = (
+        filtered_df.groupby(filtered_df["Date"].dt.to_period("M"))[
+            "Children discharged from HHS Care"
+        ]
+        .sum()
+        .reset_index()
+    )
+
+    monthly_discharge["Date"] = monthly_discharge["Date"].astype(str)
+
+    fig3 = px.line(
+        monthly_discharge,
+        x="Date",
+        y="Children discharged from HHS Care",
+        title="Monthly Discharges",
+        markers=True
+    )
+
+    left2.plotly_chart(fig3, use_container_width=True)
+
+    # -----------------------------
+    # CBP vs HHS Comparison
+    # -----------------------------
+    comparison = pd.DataFrame({
+        "Category": [
+            "CBP Custody",
+            "HHS Care"
+        ],
+        "Children": [
+            filtered_df["Children in CBP custody"].mean(),
+            filtered_df["Children in HHS Care"].mean()
+        ]
+    })
+
+    fig4 = px.bar(
+        comparison,
+        x="Category",
+        y="Children",
+        title="Average Children: CBP vs HHS"
+    )
+
+    right2.plotly_chart(fig4, use_container_width=True)
+
+    st.divider()
