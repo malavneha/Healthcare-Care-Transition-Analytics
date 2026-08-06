@@ -64,6 +64,8 @@ Healthcare-Care-Transition-Analytics/
 
 Neha Malav
 ## 🌐 Live Demo
+
+
 ## 📸 Dashboard Preview
 
 ### Dashboard Overview
@@ -98,6 +100,7 @@ Neha Malav
 
 ### Monthly Apprehensions
 ![Chart](Screenshot_20260806_072743.png)
+
 ## 📊 Key Insights
 
 - CBP apprehensions fluctuated significantly over the observed period, indicating changing migration patterns.
@@ -105,6 +108,7 @@ Neha Malav
 - Discharge efficiency remained relatively low, suggesting children typically stay in HHS care for extended periods.
 - Monthly trends revealed seasonal variations in apprehensions and transfers.
 - Interactive filtering enables stakeholders to analyze operational performance across different time periods.
+- 
 ## 💡 Recommendations
 
 - Improve discharge planning to reduce the average length of stay in HHS care.
@@ -112,6 +116,7 @@ Neha Malav
 - Use predictive analytics to forecast future care demand.
 - Develop automated alerts for unusual increases in apprehensions or delays in transfers.
 - Expand the dashboard with regional and state-level analytics for better decision-making.
+- 
 - ## 🚀 Future Enhancements
 
 - Predictive analytics using Machine Learning
@@ -129,15 +134,6 @@ https://healthcare-care-transition-analytics-ned5x4whmtey76yaxl4orr.streamlit.ap
 
 https://www.kaggle.com/code/nehamalav/nehaproject8d1a
 
-## 🚀 Features
-
-- Interactive Streamlit Dashboard
-- Upload CSV Dataset
-- Dataset Preview
-- Transfer Efficiency KPI
-- Discharge Efficiency KPI
-- Monthly Trend Analysis
-- Data Cleaning with Pandas
 
 ## 👩‍💻 Author
 
