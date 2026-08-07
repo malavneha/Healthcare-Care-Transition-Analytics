@@ -16,6 +16,12 @@
 - Version-controlled the complete project using Git and GitHub and deployed the application for public access using Streamlit Community Cloud.
 - Documented the project with clear technical documentation, demonstrating independent problem-solving, software development, and analytical reasoning.
 
+INDEPENDENT TECHNICAL WORK
+
+- Built and maintained a public GitHub portfolio showcasing Python-based healthcare analytics projects and reproducible code.
+- Published analytical work on Kaggle and deployed interactive applications using Streamlit Community Cloud.
+- Continuously expanding knowledge in machine learning, AI alignment, and trustworthy AI through independent study, technical reading, and hands-on experimentation.
+
 ## Project Overview
 This project analyzes the efficiency of the Unaccompanied Alien Children (UAC) care transition process using Python, Pandas, Matplotlib, and Streamlit.
 
