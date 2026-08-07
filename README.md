@@ -6,6 +6,16 @@
 
 # Healthcare Care Transition Analytics
 
+
+
+- Independently designed and developed an end-to-end healthcare analytics application to analyze patient care transition and discharge workflows.
+- Performed data cleaning, preprocessing, exploratory data analysis (EDA), and feature engineering on operational healthcare datasets using Python and Pandas.
+- Designed interactive dashboards and visual analytics to identify trends, operational bottlenecks, and key performance indicators (KPIs).
+- Implemented reproducible data processing workflows and modular Python code for efficient analysis and visualization.
+- Built an interactive Streamlit application with dynamic filtering, downloadable reports, and user-driven exploration of healthcare data.
+- Version-controlled the complete project using Git and GitHub and deployed the application for public access using Streamlit Community Cloud.
+- Documented the project with clear technical documentation, demonstrating independent problem-solving, software development, and analytical reasoning.
+
 ## Project Overview
 This project analyzes the efficiency of the Unaccompanied Alien Children (UAC) care transition process using Python, Pandas, Matplotlib, and Streamlit.
 
