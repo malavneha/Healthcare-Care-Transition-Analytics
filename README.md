@@ -78,7 +78,7 @@ Healthcare-Care-Transition-Analytics/
 
 ## Author
 
-Neha Malav
+ Dr Neha Malav
 ## 🌐 Live Demo
 https://healthcare-care-transition-analytics-ned5x4whmtey76yaxl4orr.streamlit.app/
 
