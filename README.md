@@ -68,8 +68,8 @@ Healthcare-Care-Transition-Analytics/
 ├── README.md
 └── data/
 ```
-###research papers
-● AIR_Healthcare_Care_Transition_Analytics_BLINDED-6.docx
+   ## Research papers
+ AIR_Healthcare_Care_Transition_Analytics_BLINDED-6.docx
 
 ●Healthcare_Care_Transition_Analytics_Research_Paper.pdf
 
