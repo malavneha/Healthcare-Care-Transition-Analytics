@@ -71,7 +71,7 @@ Healthcare-Care-Transition-Analytics/
 ###research papers
 ● AIR_Healthcare_Care_Transition_Analytics_BLINDED-6.docx
 
-
+●Healthcare_Care_Transition_Analytics_Research_Paper.pdf
 
 
 ## Future Improvements
