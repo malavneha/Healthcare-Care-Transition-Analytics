@@ -69,9 +69,10 @@ Healthcare-Care-Transition-Analytics/
 └── data/
 ```
    ## Research papers
+ ● manuscript submitted,not published yet.
  AIR_Healthcare_Care_Transition_Analytics_BLINDED-6.docx
 
-●Healthcare_Care_Transition_Analytics_Research_Paper.pdf
+● Healthcare_Care_Transition_Analytics_Research_Paper.pdf
 
 
 ## Future Improvements
