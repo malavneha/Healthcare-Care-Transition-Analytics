@@ -70,7 +70,7 @@ Healthcare-Care-Transition-Analytics/
 ```
    ## Research papers
  ● manuscript submitted,not published yet.
- AIR_Healthcare_Care_Transition_Analytics_BLINDED-6.docx
+ 
 
 https://github.com/malavneha/Healthcare-Care-Transition-Analytics/blob/main/Healthcare_Care_Transition_Analytics_Research_Paper.pdf
 
